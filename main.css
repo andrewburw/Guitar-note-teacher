@@ -1,0 +1,111 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.bg_image_guitar img {
+    width: 80%;
+    height: 80%;
+
+}
+.displayNONE{
+  display: none;
+}
+.displayNONE1 {
+  cursor:pointer;
+}
+#Layer_1 {
+   margin-top: 5%;
+   margin-bottom: 5%;
+}
+.E-btn-color {
+  background-color: #5fb761;
+  color: white;
+}
+.E-btn-color:hover {
+    background-color: #428043;
+      color: white;
+}
+.F-btn-color {
+  background-color: #1d0433;
+  color: white;
+}
+.F-btn-color:hover {
+    background-color: #000000;
+    color: white;
+}
+.С-btn-color {
+  background-color: #804f9b;
+  color: white;
+}
+.С-btn-color:hover {
+    background-color: #59376c;
+    color: white;
+}
+.G-btn-color{
+  background-color: #d5ca03;
+  color: white;
+}
+.G-btn-color:hover {
+    background-color: #958d02;
+      color: white;
+}
+.A-btn-color {
+  background-color: #b20000;
+  color: white;
+}
+.A-btn-color:hover {
+    background-color: #7a0000;
+      color: white;
+}
+.B-btn-color {
+  background-color: #560000;
+  color: white;
+}
+.B-btn-color:hover {
+    background-color: #440000;
+    color: white;
+}
+.B-btn-color:focus, .A-btn-color:focus,.G-btn-color:focus,.F-btn-color:focus,.E-btn-color:focus,.С-btn-color:focus,.all-btn-color:focus     {
+
+    color: white;
+}
+
+/* drom dovn on/off notes */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    opacity: 0.8;
+    z-index: 1;
+
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-submenu {
+position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+top: 100;
+left: -50%;
+margin-top: -1px;
+}
+
+.note-btn-color_active {
+  box-shadow: 5px 5px 5px #888888;
+}
+.hover_button:hover {
+    box-shadow: 5px 3px 3px #888888;
+    transition-duration: 0.5s;
+   }
+.btn_f {
+  border: 1px solid black;
+}
