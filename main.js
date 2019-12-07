@@ -109,7 +109,10 @@ function render() {
       generate_trans() + ") scale(0.96 1)\">E</text></g>");
 
   }
+
+  a1 = 0;c1 = 0;b1 = -1;lad = 0;strg = 9;a = 0;c = 0;
 };
+
 render()
 
 //--------------------- end -------------------------------------------
@@ -209,21 +212,20 @@ function clear_all(){
 
 }
 
-function shiftNote(l){
-  if(tuneChenge == true) {
-if (l[2] == 8) {
-
-  let log = Number(l[4]) + 2 // Shift
-  if (l.length == 6) {
-    log = Number(l[4] + l[5]) + 2 // Shift
+function shiftNote(l) {
+  if (tuneChenge == true) {
+    if (l[2] == 8) {
+      let log = Number(l[4]) + 2 // Shift
+      if (l.length == 6) {
+        log = Number(l[4] + l[5]) + 2 // Shift
+      }
+      return l[0] + l[1] + l[2] + l[3] + log
+    }
   }
 
-  return l[0] + l[1] + l[2] + l[3] + log
+  return l;
 }
-  }
 
-return l;
-}
 
 function on_off(note,check,butn,obj) {
 $(obj).toggleClass("note-btn-color_active");
@@ -357,7 +359,7 @@ function changeTune(id){
    if (id == "dropE-8") {
        tuneChenge = true;
      let tempAdress = [];
-     $("#tuneShow").text(" Droped E")
+     $("#tuneShow").text("Droped E (E-B-E-A-D-G-B-E)")
      for (var i = 0; i < 25; i++) {  tempAdress.push("#S6L"+i);}
 
      $.each(tempAdress, function(i, l) {
@@ -381,5 +383,6 @@ function changeTune(id){
    } else if (id == "def-8"){
      tuneChenge = false;
       renderNotesOnGird();
+      $("#tuneShow").text("Standart — (F#-B-E-A-D-G-B-E)")
    }
 }

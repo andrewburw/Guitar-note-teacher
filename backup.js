@@ -135,7 +135,7 @@ let note_F = {name:"F",hafTonesCheck: true,id: noteF_arr,color: "#1d0433"};
 const noteC_arr = ["#S8L6", "#S7L1", "#S2L1", "#S5L3", "#S3L5", "#S1L8", "#S6L8", "#S4L10", "#S2L13", "#S5L15", "#S3L17",
   "#S1L20", "#S6L20", "#S4L22", "#S8L18", "#S7L13"];
 let note_C = {name:"C",hafTonesCheck: true,id: noteC_arr,color: "#804f9b"};
-
+function renderNotesOnGird(){
 note(note_E)
 note(note_A)
 note(note_D)
@@ -143,12 +143,14 @@ note(note_G)
 note(note_B)
 note(note_F)
 note(note_C)
-
+}
+  //renderNotesOnGird();
 // ============= BUTTONS FUNCTIONS ==========================================
 let turnedONbuttons = [], // presed notes
     turnedOnHalfToneButtons =[], // pressed half notes
     button_all_pressed = false,
     all_butun_pressed_first = true;
+    tuneChenge = false;
 function collapse_all() {
 
 if (all_butun_pressed_first == true) {$(".displayNONE1").toggle()}
@@ -207,23 +209,52 @@ function clear_all(){
 
 }
 
+function shiftNote(l){
+  if(tuneChenge == true) {
+if (l[2] == 8) {
+
+  let log = Number(l[4]) + 2 // Shift
+  if (l.length == 6) {
+    log = Number(l[4] + l[5]) + 2 // Shift
+  }
+
+  return l[0] + l[1] + l[2] + l[3] + log
+}
+  }
+
+return l;
+}
+
 function on_off(note,check,butn,obj) {
 $(obj).toggleClass("note-btn-color_active");
   all_butun_pressed_first = false;
   if (check == false) {
     $.each(detect_haf_tone(note), function(i, l) {
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      let render = [];
+       render.push(shiftNote(l))
 
-      $(l).toggle()
+      $(render.join(", ")).toggle()
     });
    $(butn).prop('disabled', function(i, v) { return !v; }); // turns off button note when pressing halftone button
 
-  } else {
-          $.each(note.id, function(i, l) {
-      $(l).toggle()
+} else {
+    $.each(note.id, function(i, l) {
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      let render = [];
+       render.push(shiftNote(l))
+
+      $(render.join(", ")).toggle()
     });
     $.each(detect_haf_tone(note), function(i, l) {
-      $(l).toggle()
-    });
+      // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      let render = [];
+       render.push(shiftNote(l))
+
+      $(render.join(", ")).toggle()
+
+});
+
      // this part checks if note exist in array then delete it
      if(turnedONbuttons.indexOf(note.name) == -1 ){
         turnedONbuttons.push(note.name);
@@ -242,7 +273,7 @@ $(obj).toggleClass("note-btn-color_active");
  // color rendered notes
  //# bigInfo - zoom big info note
  // tune - standart or modify
-function note(note,tune) {
+function note(note) {
   $("#bigInfo").show(500)
 
   $.each(note.id, function(i, l) {
@@ -263,19 +294,19 @@ function note(note,tune) {
 // return half tone adreses
 function detect_haf_tone(note){
    var returned = []
-     if (note.hafTonesCheck === true) {
-  $.each(note.id, function(i, l) {
-    let log = Number(l[4]) + 1
-    if (l.length == 6) {
-      log = Number(l[4] + l[5]) + 1 // sdvig
-    }
-    returned.push(l[0] + l[1] + l[2] + l[3] + log)
+   if (note.hafTonesCheck === true) {
+     $.each(note.id, function(i, l) {
+       let log = Number(l[4]) + 1
+       if (l.length == 6) {
+         log = Number(l[4] + l[5]) + 1 // sdvig
+       }
+       returned.push(l[0] + l[1] + l[2] + l[3] + log)
 
-});
-}
+     });
+   }
+   return returned;
+   }
 
-  return returned;
-}
 
 //----------- zooom note ------------------------
 function showBigNote(d) {
@@ -324,42 +355,32 @@ changeTune(this.value);
 });
 function changeTune(id){
    if (id == "dropE-8") {
+       tuneChenge = true;
      let tempAdress = [];
-     $("#tuneShow").text(" Droped E")
-     for (var i = 0; i < 25; i++) { // generate adresses where take tune
-       tempAdress.push("#S6L"+i)
-     }
+     $("#tuneShow").text("Droped E (E-B-E-A-D-G-B-E)")
+     for (var i = 0; i < 25; i++) {  tempAdress.push("#S6L"+i);}
+
      $.each(tempAdress, function(i, l) {
-     let getParmSyle = d3.select(l).select("ellipse").attr("style");
-     let getParmTxt = d3.select(l).select("text").text();
-     let transformAdress = function(l) {
-       let re = /6/gi;
-       return l.replace(re, '8'); // change string in adress
-     }
-     let rgb = [];
+
+       let getParmSyle = d3.select(l).select("ellipse").attr("style");
+       let getParmTxt = d3.select(l).select("text").text();
+       let transformAdress = function(l) {
+         let re = /6/;
+         return l.replace(re, '8'); // change string in adress
+       }
+         let rgb = [];
           for (var i = 6; i < getParmSyle.length-1; i++) {
-        rgb.push(getParmSyle[i])
+        rgb.push(getParmSyle[i]);
      }
      d3.select(transformAdress(l)).select("ellipse").style("fill",rgb.join(""));
      d3.select(transformAdress(l)).select("text").text(getParmTxt);
-     console.log(transformAdress(l))
-   });
+
+      });
+
+
+   } else if (id == "def-8"){
+     tuneChenge = false;
+      renderNotesOnGird();
+      $("#tuneShow").text("Standart — (F#-B-E-A-D-G-B-E)")
    }
 }
-/*
-var re = /яблоки/gi;
-var str = 'Яблоки круглые и яблоки сочные.';
-var newstr = str.replace(re, 'апельсины');
-console.log(newstr); // апельсины круглые и апельсины сочные.
-*/
-function Rep() {
-    var str = 'Hello World';
-    str = setCharAt(str,4,'a');
-    alert(str);
-}
-
-function setCharAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substr(0,index) + chr + str.substr(index+1);
-}
-Rep()
