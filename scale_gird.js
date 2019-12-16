@@ -6,170 +6,346 @@ let scalesFormulas = [
      {
       name:"Major",
       formula:['W','W','H','W','W','W','H']
-
-
 },{
  name:"h_minor",
  formula:['W','H','W','W','H','','','H']
-
-
 },{
  name:"m_minor_asc",
  formula:['W','H','W','W','W','W','H']
-
-
 },{
  name:"m_minor_dsc",
  formula:['W','H','W','W','H','W','W']
-
-
 },{
  name:"w_tone",
  formula:['W','W','W','W','W','W','W']
-
-
 },{
  name:"penta_major",
  formula:['W','W','','W','W','','W']
-
-
 },{
  name:"penta_minor",
  formula:['','','H','W','W','','W']
-
-
 },{
  name:"penta_blues",
  formula:['','','H','W','H','H','','','H']
-
-
 },{
  name:"penta_minor",
  formula:['','','H','W','W','','W']
-
-
 },{
  name:"penta_neutral",
  formula:['W','','W','W','','','H']
-
-
 },{
  name:"Octa_h_w",
  formula:['H','W','H','W','H','W','H']
-
-
 },{
  name:"Octa_w_h",
  formula:['W','H','W','H','W','H','W']
-
-
 },{
  name:"ionian",
  formula:['W','W','H','W','W','W','H']
-
-
 },{
  name:"dorian",
  formula:['W','H','W','W','W','H','W']
-
-
 },{
  name:"phrygian",
  formula:['H','W','W','W','H','W','W']
-
-
 },{
  name:"lydian_augment",
  formula:['W','W','W','W','H','W','W']
-
-
 },{
  name:"lydian_minor",
  formula:['W','W','W','H','H','W','W']
-
-
 },{
  name:"lydian_dim",
  formula:['W','H','','','H','H','W','W']
-
-
 },{
  name:"mixolydian",
  formula:['W','W','H','W','W','H','W']
-
-
 },{
  name:"aeolian",
  formula:['W','H','W','W','H','W','W']
-
-
 },{
  name:"locrian",
  formula:['H','W','W','H','W','W','W']
-
-
 },{
  name:"bebop_maj",
  formula:['W','W','H','W','H','H','W']
-
-
 },{
  name:"bebop_min",
  formula:['W','H','H','H','W','W','H']
+},{
+ name:"bebop_dom",
+ formula:['W','W','H','W','W','H','H']
+},{
+ name:"bebop_half_dim",
+ formula:['H','W','W','H','H','H','','W']
+},{
+ name:"blues_var1",
+ formula:['','W','W','H','H','','','H','H']
+},{
+ name:"blues_var2",
+ formula:['','W','H','H','H','H','','','H','H']
+},{
+ name:"blues_var3",
+ formula:['','W','H','H','H','H','W','H','H']
+},{
+ name:"mixo_blues",
+ formula:['','W','H','H','H','H','','','H','W']
+},{
+ name:"maj_blu_scl",
+ formula:['W','H','H','','','H','W','','']
+},{
+ name:"chinese_2",
+ formula:['W','','W','W','W','','']
+},{
+ name:"hirajoshi_2",
+ formula:['','','','H','H','','','','H','W']
+},{
+ name:"iwato",
+ formula:['H','','','','H','H','','','','H']
+},{
+ name:"japanise",
+ formula:['H','','','','H','W','','','H','W']
+},{
+ name:"kumoi_2",
+ formula:['H','','','','H','W','H','','','']
+},{
+ name:"pelog_2",
+ formula:['H','W','','','','H','','','H']
+},{
+ name:"locrian_6",
+ formula:['H','W','W','H','','','H','H']
+},{
+ name:"ionian_#5",
+ formula:['W','W','H','','','H','H','W']
+},{
+ name:"ionian_#5",
+ formula:['W','W','','','H','H','H','W']
+},{
+ name:"dorian_#4",
+ formula:['W','H','','','H','H','W','H']
+},{
+ name:"phryg_maj",
+ formula:['H','','','H','H','W','H','W']
+},{
+ name:"lyd_#2",
+ formula:['','','H','H','W','H','W','W']
+},{
+ name:"ultralocrian",
+ formula:['H','W','H','W','W','H','','']
+},{
+ name:"moorish_phrygian",
+ formula:['H','W','H','H','W','H','W','H']
+},{
+ name:"algerian",
+ formula:['W','H','W','H','H','H','','','H']
+},{
+ name:"altered",
+ formula:['H','W','H','W','H','H','W']
+},{
+ name:"arabian_a",
+ formula:['W','H','W','H','W','H','W']
+},{
+ name:"arabian_b",
+ formula:['W','W','H','H','W','W','W']
+},{
+ name:"augmented",
+ formula:['','','H','H','W','W','','','H']
+},{
+ name:"aux_dim",
+ formula:['W','H','W','H','W','H','W',]
+},{
+ name:"aux_aug",
+ formula:['W','W','W','W','W','W','W',]
+},{
+ name:"aux_dim_blues",
+ formula:['H','W','H','W','H','W','H',]
+},{
+ name:"balinese",
+ formula:['H','W','','','','H','H','','','']
+},{
+ name:"blues",
+ formula:['','','H','W','H','H','','','H']
+},{
+ name:"byzantine",
+ formula:['H','','','H','H','W','H','','','H']
+},{
+ name:"chinese",
+ formula:['','','','H','W','H','','','','H']
+},{
+ name:"chinese_mong",
+ formula:['W','W','','','H','W','','']
+},{
+ name:"diminished",
+ formula:['W','H','W','H','W','H','W']
+},{
+ name:"dim_halfs",
+ formula:['H','W','H','W','H','W','H',]
+},{
+ name:"dim_whole",
+ formula:['H','W','H','W','W','W','W',]
+},{
+ name:"dim_7th",
+ formula:['W','W','H','W','W','H','W',]
+},{
+ name:"d_hormonic",
+ formula:['H','','W','H','W','H','','','H']
+},{
+ name:"egyptian",
+ formula:['W','','W','W','','','H']
+},{
+ name:"e_tone_span",
+ formula:['H','W','H','H','H','W','W']
+},{
+ name:"enigmatic",
+ formula:['H','','W','W','W','W','H']
+},{
+ name:"ethi_a_rar",
+ formula:['W','H','W','H','W','W','W']
+},{
+ name:"ethi_a_rar_g_E",
+ formula:['W','H','W','W','H','W','W']
+},{
+ name:"dim_half_locr_2",
+ formula:['W','H','W','H','W','W','W']
+},{
+ name:"hawaiian",
+ formula:['W','H','W','W','W','W','W']
+},{
+ name:"hindu",
+ formula:['W','W','H','W','H','W','W']
+},{
+ name:"hirajoshi",
+ formula:['W','H','','','W','H','','','',]
+},{
+ name:"hung_maj",
+ formula:['','W','H','W','H','W','H']
+},{
+ name:"hung_gyp",
+ formula:['W','H','','W','H','H','','','H']
+},{
+ name:"hung_gyp_per",
+ formula:['H','','W','H','W','H','','W']
+},{
+ name:"japanise_a",
+ formula:['H','','','W','W','H','','','']
+},{
+ name:"japanise_b",
+ formula:['W','','W','W','H','','','']
+},{
+ name:"jap_ichik",
+ formula:['W','W','H','H','H','W','W']
+},{
+ name:"javaneese",
+ formula:['H','W','W','W','W','H','W']
+},{
+ name:"jewish_a_m",
+ formula:['H','H','H','W','W','W','H']
+},{
+ name:"jewish_a_r",
+ formula:['H','','W','H','W','H','W','W']
+},{
+ name:"jewish_m_b",
+ formula:['H','','W','H','W','H','W','W']
+},{
+ name:"kumoi",
+ formula:['W','H','','','W','W','','']
+},{
+ name:"lead_w_tone",
+ formula:['W','W','W','W','W','H','H']
+},{
+ name:"maj_locrian",
+ formula:['W','W','H','H','W','W','W']
+},{
+ name:"mohammedan",
+ formula:['W','H','W','W','H','','W']
+},{
+ name:"n_pure_min",
+ formula:['W','H','W','W','H','W','W']
+},{
+ name:"neopolitan",
+ formula:['H','W','W','W','H','','W']
+},{
+ name:"neopolitan_maj",
+ formula:['H','W','W','W','W','W','W']
+},{
+ name:"neopolitan_min",
+ formula:['H','W','W','W','H','W','W']
+},{
+ name:"n_tone_scl",
+ formula:['W','H','H','W','H','H','H','W']
+},{
+ name:"orental_a",
+ formula:['H','','W','H','H','W','W']
+},{
+ name:"orental_b",
+ formula:['H','','W','H','H','','W','H']
+},{
+ name:"overtone",
+ formula:['W','W','W','H','W','H','W']
+},{
+ name:"pelog",
+ formula:['H','W','','','W','H','','','']
+},{
+ name:"persian",
+ formula:['H','','W','H','H','W','','','H']
+},{
+ name:"prometheus",
+ formula:['W','W','W','','W','H']
+},{
+ name:"prometheus_neo",
+ formula:['H','','W','W','','W','H']
+},{
+ name:"rom_min",
+ formula:['W','H','','W','H','W','H']
+},{
+ name:"six_t_sym",
+ formula:['H','','W','H','','W','H']
+},{
+ name:"sp_gay",
+ formula:['H','','W','H','W','H','W']
+},{
+ name:"sp_loc",
+ formula:['H','W','H','W','W','W']
+},{
+ name:"m_phry",
+ formula:['H','W','H','H','W','H','W','H']
+}];
 
 
-}]
+
+
+
 //[8,1,5,10,3,8,1,6]
 
 const patternStartNotes = [8,1,5,10,3,8,1,6]; // start positions for note "C"
-const noteFormulas = [{
-   name: 'C',
-   formula:0
+const noteFormulas = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 
-},{
-  name: 'C#',
-  formula: 1
-},{
-  name: 'D',
-  formula: 2
-},{
-  name: 'D#',
-  formula: 3
-},{
-  name: 'E',
-  formula: 4
-},{
-  name: 'F',
-  formula: 5
-},{
-  name: 'F#',
-  formula: 6
-},{
-  name: 'G',
-  formula: 7
-},{
-  name: 'G#',
-  formula: 8
-},{
-  name: 'A',
-  formula: 9
-},{
-  name: 'A#',
-  formula: 10
-},{
-  name: 'B',
-  formula: 11
-}];
+
+// main FUNCTION controled by GET button
+function showScaleMain() {
+// button GET pressed
+let patternS = $("#selectScalePattern").val();
+let chordS =  $("#selectScaleChords").val();
+let scaleS =  $("#selectScaleScale").val();
+
+  showScaleNotesOngird(scaleGenerator(patternS,chordS,scaleS));
+}
+
+
 //**************************************************************
 //                        The main scale generator
 //**************************************************************
 function scaleGenerator(pattern_s,chord_s,scale_s) {
   clear_all();
   $(".displayNONE1").hide(); // hide all notes on gird
+  $("#schemaShow").text(filterIt(scalesFormulas,scale_s).formula.join(" ")); // in menu show schema selected
+  $("#scaleNameShow").text($("#selectScaleScale").find('option:selected').text());
+
 
 
     let formulaBin = [true];
     let generatorResultArray = [];
+
 
 
 
@@ -209,7 +385,7 @@ function selectedNote(chord) {
 
       return patternStartNotes.map(function(val){
 
-         return val + filterIt(noteFormulas,chord).formula > 12 ? (val + filterIt(noteFormulas,chord).formula) - 12 : val + filterIt(noteFormulas,chord).formula;
+         return val + noteFormulas.indexOf(chord) > 12 ? (val + noteFormulas.indexOf(chord)) - 12 : val + noteFormulas.indexOf(chord);
 
 });
 
@@ -257,18 +433,11 @@ function showMusicTeory() {
    clear_all();
   $("#musicTeoryForm").toggle();
   $(".displayNONE1").hide(); // hide all notes on gird
+  $(".schemaShow").toggle();
+  $("#schemaShow").text(" ")
+
+
 }
-// main FUNCTION controled by GET button
-function showScaleMain() {
-// button GET pressed
-let patternS = $("#selectScalePattern").val();
-let chordS =  $("#selectScaleChords").val();
-let scaleS =  $("#selectScaleScale").val();
-
-  showScaleNotesOngird(scaleGenerator(patternS,chordS,scaleS));
-}
-
-
 
 
 // function of showing IDis

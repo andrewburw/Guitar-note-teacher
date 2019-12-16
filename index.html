@@ -6,22 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Andrey">
-<!--  <link rel="apple-touch-icon" sizes="57x57" href="ggpool/img/icons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="ggpool/img/icons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="ggpool/img/icons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="ggpool/img/icons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="ggpool/img/icons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="ggpool/img/icons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="ggpool/img/icons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="ggpool/img/icons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="ggpool/img/icons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="ggpool/img/icons/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="ggpool/img/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="ggpool/img/icons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="ggpool/img/icons/favicon-16x16.png">
-  <link rel="manifest" href="ggpool/img/icons/manifest.json">
+  <link rel="manifest" href="img/icons/manifest.json">
   <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="ggpool/img/icons/ms-icon-144x144.png">-->
+  <link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="img/icons/favicon.ico" type="image/x-icon">
   <meta name="theme-color" content="#ffffff">
   <title>Note Teacher</title>
 
@@ -87,7 +75,10 @@
     <div class="row">
       <div class="col-md-8 col-xs-8 col-sm-4">
         <h2 class="big">String: <span id="how_much_string">8</span></h2>
-        <h4 class="big">Tune: <span id="tuneShow" class="small">Standart(F#-B-E-A-D-G-B-E)</span></h4></div>
+        <h4 class="big">Tune: <span id="tuneShow" class="small">Standart(F#-B-E-A-D-G-B-E)</span>
+          <h4 class="big schemaShow">Schema: <span id="schemaShow" class="small schemaShow">test</span></h4>
+                        </div>
+
           <div class="col-md-4 col-sm-8" style="margin-top:3%;">
 
         <div class="dropdown pull-right">
@@ -333,6 +324,8 @@
       <path class="cls-10" d="M411.43,370.92l-0.57,93.47-0.08,13.28a1.25,1.25,0,0,0,2.5,0l0.57-93.47,0.08-13.28a1.25,1.25,0,0,0-2.5,0h0Z" transform="translate(-20.62 -267.03)"/>
       <g class="conteiner2">  <g class="container1"> </g></g></svg>
   <div class="row">
+    <div class="col-md-4"><h5 class="big schemaShow"><small>Scale: </small><span id="scaleNameShow" class="small schemaShow"></span></h5></div>
+
     <div class="pull-right text-muted"><small><p><b>C</b>-<small>do</small>,
       <b>D</b>-<small>re</small>, <b>E</b>-<small>mi</small>, <b>F</b>-<small>fa</small>,
       <b>G</b>-<small>sol</small>, <b>A</b>-<small>la</small>, <b>B</b>-<small>si</small></small>
@@ -384,7 +377,7 @@
     <button type="button" style="margin-left: 0.5%;" class="toggle_button btn btn-default btn-sm" onclick="collapse_all()">All</button>
     <button type="button" class="btn btn-default btn-sm" onclick="clear_all()">Clear</button>
     <button type="button" class="btn btn-default btn-sm" onclick="remove_notes(7)">Remove</button>
-      <button type="button" class="btn btn-default btn-sm" onclick="scaleGenerator()">TEST</button>
+
 
   </div>
 <div id="musicTeoryForm" class="musicTeoryForm row col-xs-6 col-sm-6 col-md-6 pull-right">
@@ -459,6 +452,83 @@
 <option value="locrian">Locrian</option>
 <option value="bebop_maj">Bebop Major</option>
 <option value="bebop_min">Bebop Minor</option>
+<option value="bebop_half_dim">Bebop Half Diminished</option>
+<option value="blues_var1">Blues Variation 1</option>
+<option value="blues_var2">Blues Variation 2</option>
+<option value="blues_var3">Blues Variation 3</option>
+<option value="mixo_blues">Mixo-Blues</option>
+<option value="maj_blu_scl">Major Blues Scale</option>
+<option value="chinese">Chinese</option>
+<option value="chinese_2">Chinese 2</option>
+<option value="chinese_mong">Chinese Mongolian</option>
+<option value="hirajoshi_2">Hirajoshi 2</option>
+<option value="iwato">Iwato</option>
+<option value="japanise">Japanise (in sen)</option>
+<option value="kumoi_2">Kumoi 2</option>
+<option value="pelog_2">Pelog 2</option>
+<option value="locrian_6">Locrian 6</option>
+<option value="ionian_#5">Ionian #5</option>
+<option value="dorian_#4">Dorian #4</option>
+<option value="phryg_maj">Phrygian Major</option>
+<option value="lyd_#2">Lydian #2</option>
+<option value="ultralocrian">Ultralocrian</option>
+<option value="moorish_phrygian">Moorish Phrygian</option>
+<option value="algerian">Algerian</option>
+<option value="altered">Altered</option>
+<option value="arabian_a">Arabian (a)</option>
+<option value="arabian_b">Arabian (b)</option>
+<option value="augmented">Augmented</option>
+<option value="aux_dim">Auxiliary Diminished</option>
+<option value="aux_aug">Auxiliary Augmented</option>
+<option value="aux_dim_blues">Auxiliary Diminished Blues</option>
+<option value="balinese">Balinese</option>
+<option value="blues">Blues</option>
+<option value="byzantine">Byzantine</option>
+<option value="diminished">Diminished</option>
+<option value="dim_half">Diminished, Half</option>
+<option value="dim_half_locr_2">Half Diminished #2 (Locrian #2)</option>
+<option value="dim_whole">Diminished Whole Tone</option>
+<option value="dim_7th">Dominant 7th</option>
+<option value="d_hormonic">Double Harmonic</option>
+<option value="egyptian">Egyptian</option>
+<option value="e_tone_span">Eight Tone Spanish</option>
+<option value="enigmatic">Enigmatic</option>
+<option value="ethi_a_rar">Ethiopian (A raray)</option>
+<option value="ethi_a_rar_g_E">Ethiopian (Geez & Ezel)</option>
+<option value="hawaiian">Hawaiian</option>
+<option value="hindu">Hindu</option>
+<option value="hirajoshi">Hirajoshi</option>
+<option value="hung_maj">Hungarian Major</option>
+<option value="hung_gyp">Hungarian Gypsy</option>
+<option value="hung_gyp_per">Hungarian Gypsy Persian</option>
+<option value="hung_gyp">Hungarian Minor</option>
+<option value="japanise_a">Japanise (A)</option>
+<option value="japanise_b">Japanise (B)</option>
+<option value="jap_ichik">Japanese (Ichikosucho)</option>
+<option value="javaneese">Javaneese</option>
+<option value="jewish_a_m">Jewish (Adonai Malakh)</option>
+<option value="jewish_a_r">Jewish (Ahaba Rabba)</option>
+<option value="jewish_m_b">Jewish (Magen Abot)</option>
+<option value="kumoi">Kumoi</option>
+<option value="lead_w_tone">Leading Whole Tone</option>
+<option value="maj_locrian">Major Locrian</option>
+<option value="mohammedan">Mohammedan</option>
+<option value="n_pure_min">Natural (Pure) Minor</option>
+<option value="neopolitan">Neopolitan</option>
+<option value="neopolitan_maj">Neoploitan Major</option>
+<option value="n_tone_scl">Nine Tone Scale</option>
+<option value="orental_a">Oriental (a)</option>
+<option value="orental_b">Oriental (b)</option>
+<option value="overtone">Overtone</option>
+<option value="pelog">Pelog</option>
+<option value="persian">Persian</option>
+<option value="prometheus">Prometheus</option>
+<option value="prometheus_neo">Prometheus Neopolitan</option>
+<option value="rom_min">Roumanian Minor</option>
+<option value="six_t_sym">Six Tone Symmetrical</option>
+<option value="sp_gay">Spanish Gypsy</option>
+<option value="sp_loc">Super Locrian</option>
+<option value="m_phry">Moorish Phrygian</option>
 </select>
 </div>
 
