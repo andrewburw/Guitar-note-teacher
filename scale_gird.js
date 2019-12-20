@@ -4,8 +4,8 @@
 
 let scalesFormulas = [
      {
-      name:"Major",
-      formula:['W','W','H','W','W','W','H']
+ name:"Major",
+ formula:['W','W','H','W','W','W','H']
 },{
  name:"h_minor",
  formula:['W','H','W','W','H','','','H']

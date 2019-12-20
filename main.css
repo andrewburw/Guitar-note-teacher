@@ -1,3 +1,14 @@
+
+.bootstrap-off {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 200%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
 body {
   padding-top: 50px;
 }
@@ -110,6 +121,14 @@ margin-top: -1px;
   border: 1px solid black;
 }
 
-#musicTeoryForm {
+#musicTeoryForm, #musicTeoryTabs,#hideShwMenuButtn,#showShwMenuButtn {
   display: none;
+}
+
+.schemaShow {
+  display: none;
+}
+
+#tabBox {
+  margin-top: 5%;
 }

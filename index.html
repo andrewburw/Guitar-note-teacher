@@ -59,19 +59,19 @@
     </div>
   </nav>
 
-  <div class="jumbotron bg_image_guitar displayNONE" id="start_page">
+  <div class="jumbotron bg_image_guitar" id="start_page">
 
     <div class="container">
       <div class="row">
         <img src="http://www.guitar-planet.co.uk/wp-content/uploads/2016/10/Jackson-X-Series-Soloist-Archtop-SLAT8-MS-Gloss-Black.png">
         <h1>Note Teacher</h1>
-        <p>Welcome!Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+        <p>Welcome!Note and scale teacher.</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button" onclick="show_main_page()">Start &raquo;</a></p>
       </div>
     </div>
   </div>
   <!-- =========================== app page ========================== -->
-  <div id="main_page" class="container">
+  <div id="main_page" class="container displayNONE">
     <div class="row">
       <div class="col-md-8 col-xs-8 col-sm-4">
         <h2 class="big">String: <span id="how_much_string">8</span></h2>
@@ -336,7 +336,9 @@
   </div>
 <div class="conteiner">
 
-<div class="row col-xs-8 col-sm-10 col-md-6">
+  <button id="showShwMenuButtn" type="button" class="btn btn-light btn-sm" onclick="hidShowMenusFunc('show')">Show menus</button>
+
+<div id="turrOffMenus" class="row col-xs-8 col-sm-10 col-md-6">
     <h2>Select Note</h2>
     <p>Move the mouse over the tone below to open the "#" halftone on/off.</p>
 
@@ -380,6 +382,7 @@
 
 
   </div>
+
 <div id="musicTeoryForm" class="musicTeoryForm row col-xs-6 col-sm-6 col-md-6 pull-right">
   <br />
   <h4> Select music options:</h4>
@@ -413,7 +416,7 @@
   <option value="3">20</option>
 </select>
 
-<select id="selectScaleChords" class="custom-select col-sm-4" size="10">
+<select id="selectScaleChords" class="custom-select col-sm-2" size="10">
 <option value="C" selected>C</option>
 <option value="C#">C#/Db</option>
 <option value="D">D</option>
@@ -428,7 +431,7 @@
 <option value="B">B</option>
 </select>
 
-<select id="selectScaleScale" class="custom-select col-sm-4" size="10">
+<select id="selectScaleScale" class="custom-select col-sm-6" size="10">
 <option value="Major" selected>Major</option>
 <option value="h_minor">Harmonic Minor</option>
 <option value="m_minor_asc">Melodic Minor(Ascending)</option>
@@ -536,15 +539,66 @@
 
 
 
-<div class="row col-sm-4">
+<div class="row col-sm-8">
 <br />
   <button type="button" class="btn F-btn-color btn-sm" onclick="showScaleMain()">GET</button>
-<button type="button" class="btn btn-warning btn-sm" onclick="alert('Sorry under construction')">Get tab</button>
+  <button type="button" class="btn btn-warning btn-sm" onclick="showPaternAndTab()">Get tab</button>
+  <button id="hideShwMenuButtn" type="button" class="btn btn-light btn-sm" onclick="hidShowMenusFunc('hide')">Hide menus</button>
+
+<br />
 </div>
 
 </div>
 </div>
+
   </div>
+ <!-- id="musicTeoryTabs" -->
+  <div  id="musicTeoryTabs" class="container">
+ <div id="tabBox" class="panel panel-default  text-center">
+  <div class="panel-heading">Tabbing:</div>
+  <div id="" class="panel-body small">
+
+
+|------------------------------------------7--5--2--------------------------------------------------------
+<br />
+|---------------------------------------------------5--2---------------------------------------------------
+<br />
+|---------------------------------------------------------4--2---------------------------------------------
+<br />
+|---------------------------------------------------------------4--2---------------------------------------
+<br />
+|---------------------------------------------------------------------4--2---------------------------------
+<br />
+|---------------------------------------------------------------------------5------------------------------
+<br />
+|---------------------------------------------------------------------------5------------------------------
+<br />
+|---------------------------------------------------------------------------5------------------------------
+<br />
+<br />
+
+|----------------------------------------------------------------------2--5--7----------------------------
+<br />
+|---------------------------------------------------------------2--5--------------------------------------
+<br />
+|---------------------------------------------------------2--4--------------------------------------------
+<br />
+|---------------------------------------------------2--4--------------------------------------------------
+<br />
+|---------------------------------------------2--4--------------------------------------------------------
+<br />
+|------------------------------------------5--------------------------------------------------------------
+<br />
+|---------------------------------------------------------------------------5-----------------------------
+<br />
+|---------------------------------------------------------------------------5-----------------------------
+</div>
+</div>
+
+
+  </div>
+
+
 
   <!-- foooooooter :) --->
   <div class="container">
@@ -564,6 +618,7 @@
 <script src="site_ui.js"></script>
 <script src="change_gird.js"></script>
 <script src="scale_gird.js"></script>
+<script src="scale_patern.js"></script>
   <!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
   <script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
 </body>
