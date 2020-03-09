@@ -324,18 +324,23 @@ const noteFormulas = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 // main FUNCTION controled by GET button
 function showScaleMain() {
 // button GET pressed
-let patternS = $("#selectScalePattern").val();
+
 let chordS =  $("#selectScaleChords").val();
 let scaleS =  $("#selectScaleScale").val();
 
-  showScaleNotesOngird(scaleGenerator(patternS,chordS,scaleS));
+patterSelectedNotes = []; // global variable of pattern selected - set to null
+
+
+
+
+  showScaleNotesOngird(scaleGenerator(chordS,scaleS));
 }
 
 
 //**************************************************************
 //                        The main scale generator
 //**************************************************************
-function scaleGenerator(pattern_s,chord_s,scale_s) {
+function scaleGenerator(chord_s,scale_s) {
   clear_all();
   $(".displayNONE1").hide(); // hide all notes on gird
   $("#schemaShow").text(filterIt(scalesFormulas,scale_s).formula.join(" ")); // in menu show schema selected
@@ -439,59 +444,148 @@ function showMusicTeory() {
 
 }
 
+ let patterSelectedNotes = []; // Gloval variable for scale_patern module to get a tab
 
 // function of showing IDis
 function showScaleNotesOngird(arrOfIDs) {
- shiftForOneOctave(arrOfIDs);
-  $.each(arrOfIDs, function(i, l) {
+  let shifted = shiftForOneOctave(arrOfIDs)
+  let idsFiltred = checkForPaternsSelected(arrOfIDs.concat(shifted));
+
+  $.each(idsFiltred, function(i, l) {
+
      $(l).show();
   });
+}
+
+//##################
+
+function checkForPaternsSelected(idForCheck) {
+// function that check for patterns selected if NOT then return all adreses
+let pattern_selected = $("#selectScalePattern").val();
+let rangeOflad;
+let result = [];
+//"#S6L3"
+
+
+switch(Number(pattern_selected)) {
+  case 1:
+    rangeOflad = [0,3];
+    break;
+  case 2:
+    rangeOflad = [2,6];
+    break;
+  case 3:
+    rangeOflad = [4,8];
+    break;
+  case 4:
+    rangeOflad = [7,10];
+    break;
+  case 5:
+    rangeOflad = [8,12];
+    break;
+  case 6:
+    rangeOflad = [12,15];
+    break;
+  case 7:
+    rangeOflad = [14,18];
+    break;
+  case 8:
+    rangeOflad = [16,20];
+    break;
+  case 9:
+    rangeOflad = [19,22];
+    break;
+  case 10:
+    rangeOflad = [20,24];
+    break;
+  default:
+  rangeOflad = null;
+}
+
+
+
+    if (rangeOflad === null) {
+
+      result = idForCheck;
+
+    } else {
+
+      rangeOflad = idForCheck.filter(function(value) {
+
+           let valueTurnToNumber = value.length == 6 ? value[4]+value[5]:value[4];
+
+
+
+        return rangeOflad[0] <= valueTurnToNumber && rangeOflad[1] >= valueTurnToNumber });
+
+       result = rangeOflad;
+
+      patterSelectedNotes = [...new Set(rangeOflad)]; // for global variable and file scale_patern + delete duplicates
+
+    }
+
+
+
+ return result;
+
 
 }
+
 //************************************************************
 //                    SHIFT FOR ONE OCTAVE + 23 - 24
 //************************************************************
 
 function shiftForOneOctave(arrOfIds) {
-// #S1L12
+// function shifts all adress for one octave.
 
-  //let temp = []
+
+ let funct_result = []; // getting result from function 'fret23_24()'
+
   $.each(arrOfIds, function(i, l) {
 
        let ids = l.split('');
         fret23_24(l); // function adding last two frets
 
+
 if (l.length == 6) {
 
      ids[4] = Number(ids[4] + ids[5]) + 12;
      ids.pop();
-     $(ids.join('')).show();
 
+      funct_result.push(ids.join(''))
 } else {
 
 
   ids[4] = Number(ids[4]) + 12
-  $(ids.join('')).show();
 
+    funct_result.push(ids.join(''))
 }
   });
 //**********************************************************************************
 
 function fret23_24(l){
 // separate function to show 23 - 24 fret notes
+
   let ids = l.split('');
 
   if (ids[4] == 0) {
  // 0+25 = teaking from fret 0 to 2 octaves
 
       ids[4] = Number(ids[4]) + 24;
-      $(ids.join('')).show();
-
+      //$(ids.join('')).show();
+      funct_result .push(ids.join(''))
   } else if (Number(ids[4] + ids[5]) == 11) {
 
           ids[4] = Number(ids[4] + ids[5]) + 12;
           ids.pop();
-          $(ids.join('')).show();
+        //  $(ids.join('')).show();
+        funct_result.push(ids.join(''))
+
   }
+
+
   }
+
+return funct_result;
+
 }
